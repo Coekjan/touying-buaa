@@ -1,6 +1,6 @@
 # Touying Slide Theme for Beihang University
 
-Inspired by [Southest University Touying Slide Theme](https://github.com/QuadnucYard/touying-theme-seu).
+Inspired by [Southeast University Touying Slide Theme](https://github.com/QuadnucYard/touying-theme-seu).
 
 ## Use as Typst Template Package
 
