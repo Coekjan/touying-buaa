@@ -1,5 +1,5 @@
 #import "@preview/cetz:0.2.2"
-#import "@preview/fletcher:0.4.5" as fletcher: node, edge
+#import "@preview/fletcher:0.5.1" as fletcher: node, edge
 #import "@preview/touying:0.4.2": *
 #import "../lib.typ" as buaa-theme
 
