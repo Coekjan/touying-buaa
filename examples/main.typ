@@ -1,37 +1,18 @@
 #import "@preview/cetz:0.2.2"
 #import "@preview/fletcher:0.5.1" as fletcher: node, edge
-#import "@preview/touying:0.4.2": *
-#import "../lib.typ" as buaa-theme
+#import "@preview/touying:0.5.0": *
+#import "../lib.typ": *
 
 // cetz and fletcher bindings for touying
 #let cetz-canvas = touying-reducer.with(reduce: cetz.canvas, cover: cetz.draw.hide.with(bounds: true))
 #let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
 
-// Register university theme
-// You can replace it with other themes and it can still work normally
-#let s = buaa-theme.register()
-
-// Set the numbering of section and subsection
-#let s = (s.methods.numbering)(self: s, section: "1.", "1.1")
-
-// Set the speaker notes configuration, you can show it by pympress
-// #let s = (s.methods.show-notes-on-second-screen)(self: s, right)
-
-// Global information configuration
-#let s = (s.methods.info)(
-  self: s,
-  title: [Typst Slide Theme for Beihang University Based on Touying],
-  subtitle: [基于 Touying 的北京航空航天大学 Typst 幻灯片模板],
-  author: [Yip Coekjan],
-  date: datetime.today(),
-  institution: [北京航空航天大学],
-)
-
 // Pdfpc configuration
-#let s = (s.methods.append-preamble)(self: s, pdfpc.config(
+// typst query --root . ./example.typ --field value --one "<pdfpc-file>" > ./example.pdfpc
+#pdfpc.config(
   duration-minutes: 30,
-  start-time: datetime(hour: 14, minute: 00, second: 0),
-  end-time: datetime(hour: 14, minute: 30, second: 0),
+  start-time: datetime(hour: 14, minute: 10, second: 0),
+  end-time: datetime(hour: 14, minute: 40, second: 0),
   last-minutes: 5,
   note-font-size: 12,
   disable-markdown: false,
@@ -42,20 +23,21 @@
     alignment: "vertical",
     direction: "inward",
   ),
-))
-
-// Extract methods
-#let (init, slides, touying-outline, alert, speaker-note, tblock) = utils.methods(s)
-#show: init.with(
-  lang: "zh",
-  font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
 )
 
-#show strong: alert
+#show: buaa-theme.with(
+  lang: "zh",
+  font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
+  config-info(
+    title: [Typst Slide Theme for Beihang University Based on Touying],
+    subtitle: [基于 Touying 的北京航空航天大学 Typst 幻灯片模板],
+    author: [Yip Coekjan],
+    date: datetime.today(),
+    institution: [北京航空航天大学],
+  )
+)
 
-// Extract slide functions
-#let (slide, empty-slide, title-slide, outline-slide, new-section-slide, ending-slide) = utils.slides(s)
-#show: slides.with()
+#title-slide()
 
 #outline-slide()
 
@@ -92,7 +74,7 @@
 
 == 复杂动画 - Mark-Style
 
-在子幻灯片 #utils.touying-wrapper((self: none) => str(self.subslide)) 中，我们可以：
+在子幻灯片 #touying-fn-wrapper((self: none) => str(self.subslide)) 中，我们可以：
 
 使用 #uncover("2-")[```typ #uncover``` 函数]（预留空间）
 
@@ -179,7 +161,7 @@
 == 其他例子
 
 #tblock(title: [Pinit, MiTeX, Codly, Ctheorems...])[
-  Touying 社区正在探索与更多 Typst 包的集成，详细情况可查阅#link("https://touying-typ.github.io/touying/zh/docs/category/package-integration")[文档]。
+  Touying 社区正在探索与更多 Typst 包的集成，详细情况可查阅#link("https://touying-typ.github.io/zh/docs/category/package-integration/")[文档]。
 ]
 
 = 其他功能
@@ -245,8 +227,7 @@
 ]
 
 // appendix by freezing last-slide-number
-#let s = (s.methods.appendix)(self: s)
-#let (slide, empty-slide) = utils.slides(s)
+#show: appendix
 
 == 附注
 

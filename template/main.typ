@@ -1,25 +1,20 @@
-#import "@preview/touying:0.4.2": *
-#import "@preview/touying-buaa:0.1.0" as buaa-theme
+#import "@preview/touying:0.5.0": *
+#import "@preview/touying-buaa:0.2.0": *
 
-#let s = buaa-theme.register()
-
-// Global information configuration
-#let s = (s.methods.info)(
-  self: s,
-  title: [Touying for BUAA: Customize Your Slide Title Here],
-  subtitle: [Customize Your Slide Subtitle Here],
-  author: [Authors],
-  date: datetime.today(),
-  institution: [Beihang University],
+// Specify `lang` and `font` for the theme if needed.
+#show: buaa-theme.with(
+  // lang: "zh",
+  // font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
+  config-info(
+    title: [Touying for BUAA: Customize Your Slide Title Here],
+    subtitle: [Customize Your Slide Subtitle Here],
+    author: [Authors],
+    date: datetime.today(),
+    institution: [Beihang University],
+  ),
 )
 
-// Extract methods
-#let (init, slides) = utils.methods(s)
-#show: init
-
-// Extract slide functions
-#let (slide, empty-slide, title-slide, outline-slide, new-section-slide, ending-slide) = utils.slides(s)
-#show: slides.with()
+#title-slide()
 
 #outline-slide()
 
