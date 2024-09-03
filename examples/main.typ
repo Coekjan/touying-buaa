@@ -7,34 +7,37 @@
 #let cetz-canvas = touying-reducer.with(reduce: cetz.canvas, cover: cetz.draw.hide.with(bounds: true))
 #let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
 
-// Pdfpc configuration
-// typst query --root . ./example.typ --field value --one "<pdfpc-file>" > ./example.pdfpc
-#pdfpc.config(
-  duration-minutes: 30,
-  start-time: datetime(hour: 14, minute: 10, second: 0),
-  end-time: datetime(hour: 14, minute: 40, second: 0),
-  last-minutes: 5,
-  note-font-size: 12,
-  disable-markdown: false,
-  default-transition: (
-    type: "push",
-    duration-seconds: 2,
-    angle: ltr,
-    alignment: "vertical",
-    direction: "inward",
-  ),
-)
-
 #show: buaa-theme.with(
+  // Lang and font configuration
   lang: "zh",
   font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
+
+  // Basic information
   config-info(
     title: [Typst Slide Theme for Beihang University Based on Touying],
     subtitle: [基于 Touying 的北京航空航天大学 Typst 幻灯片模板],
     author: [Yip Coekjan],
     date: datetime.today(),
     institution: [北京航空航天大学],
-  )
+  ),
+
+  // Pdfpc configuration
+  // typst query --root . ./examples/main.typ --field value --one "<pdfpc-file>" > ./examples/main.pdfpc
+  config-common(preamble: pdfpc.config(
+    duration-minutes: 30,
+    start-time: datetime(hour: 14, minute: 10, second: 0),
+    end-time: datetime(hour: 14, minute: 40, second: 0),
+    last-minutes: 5,
+    note-font-size: 12,
+    disable-markdown: false,
+    default-transition: (
+      type: "push",
+      duration-seconds: 2,
+      angle: ltr,
+      alignment: "vertical",
+      direction: "inward",
+    ),
+  )),
 )
 
 #title-slide()
