@@ -68,7 +68,7 @@
 同时，#pause 我们可以使用 ```typ #meanwhile``` 来 #pause 显示同时其他内容。
 
 #speaker-note[
-  使用 ```typ #let s = (s.math.show-notes-on-second-screen)(self: s, right)``` 来启用演讲提示，否则将不会显示。
+  使用 ```typ config-common(show-notes-on-second-screen: right)``` 来启用演讲提示，否则将不会显示。
 ]
 
 
