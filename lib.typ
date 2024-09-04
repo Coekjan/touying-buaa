@@ -1,5 +1,5 @@
 // Stargazer theme - adapted for BUAA
-#import "@preview/touying:0.5.0": *
+#import "@preview/touying:0.5.2": *
 #import themes.stargazer: *
 
 #let buaa-theme(
