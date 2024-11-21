@@ -1,6 +1,6 @@
-#import "@preview/cetz:0.2.2"
-#import "@preview/fletcher:0.5.1" as fletcher: node, edge
-#import "@preview/touying:0.5.2": *
+#import "@preview/cetz:0.3.1"
+#import "@preview/fletcher:0.5.2" as fletcher: node, edge
+#import "@preview/touying:0.5.3": *
 #import "../lib.typ": * // i.e. "@preview/touying-buaa:<latest>"
 
 // cetz and fletcher bindings for touying
@@ -10,7 +10,7 @@
 #show: buaa-theme.with(
   // Lang and font configuration
   lang: "zh",
-  font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
+  font: ("Libertinus Serif", "Source Han Sans SC", "Source Han Sans"),
 
   // Basic information
   config-info(
@@ -45,6 +45,8 @@
 #outline-slide()
 
 = Typst 与 Touying
+
+== Typst 与 Touying
 
 #tblock(title: [Typst])[
   Typst 是一门新的基于标记的排版系统，它强大且易于学习。本演示文稿不详细介绍 Typst 的使用，你可以在 Typst 的#link("https://typst.app/docs")[文档]中找到更多信息。
