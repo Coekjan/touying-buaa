@@ -4,7 +4,14 @@
 // Specify `lang` and `font` for the theme if needed.
 #show: buaa-theme.with(
   // lang: "zh",
-  // font: ("Linux Libertine", "Source Han Sans SC", "Source Han Sans"),
+  // font: (
+  //   (
+  //     name: "Linux Libertine",
+  //     covers: "latin-in-cjk",
+  //   ),
+  //   "Source Han Sans SC",
+  //   "Source Han Sans",
+  // ),
   config-info(
     title: [Touying for BUAA: Customize Your Slide Title Here],
     subtitle: [Customize Your Slide Subtitle Here],
