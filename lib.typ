@@ -1,5 +1,5 @@
 // Stargazer theme - adapted for BUAA
-#import "@preview/touying:0.5.3": *
+#import "@preview/touying:0.6.1": *
 #import themes.stargazer: *
 
 #let buaa-theme(
@@ -12,7 +12,7 @@
 
   set text(lang: lang, font: font)
   show: if lang == "zh" {
-    import "@preview/cuti:0.2.1": show-cn-fakebold
+    import "@preview/cuti:0.3.0": show-cn-fakebold
     show-cn-fakebold
   } else {
     it => it
